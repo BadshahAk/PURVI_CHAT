@@ -24,7 +24,7 @@ from RAUSHAN.modules.helpers import (
 )
 
 
-@dev.on_message(filters.command(["start", "aistart"]) & ~filters.bot)
+@dev.on_message(filters.command(["gstart", "gaistart"]) & ~filters.bot)
 async def start(_, m: Message):
     if m.chat.type == ChatType.PRIVATE:
         accha = await m.reply_text(
@@ -58,7 +58,7 @@ async def start(_, m: Message):
         await add_served_chat(m.chat.id)
 
 
-@dev.on_message(filters.command(["help"], prefixes=["+", ".", "/", "-", "?", "$"]))
+@dev.on_message(filters.command(["ghelp"], prefixes=["+", ".", "/", "-", "?", "$"]))
 async def help(client: AMBOT, m: Message):
     if m.chat.type == ChatType.PRIVATE:
         hmm = await m.reply_photo(
@@ -76,7 +76,7 @@ async def help(client: AMBOT, m: Message):
         await add_served_chat(m.chat.id)
 
 
-@dev.on_message(filters.command("repo") & ~filters.bot)
+@dev.on_message(filters.command("grepo") & ~filters.bot)
 async def repo(_, m: Message):
     await m.reply_text(
         text=SOURCE_READ,
