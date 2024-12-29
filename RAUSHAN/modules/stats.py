@@ -13,7 +13,7 @@ from RAUSHAN.database.chats import get_served_chats
 from RAUSHAN.database.users import get_served_users
 
 
-@dev.on_message(filters.command("stats") & filters.user(OWNER_ID))
+@dev.on_message(filters.command("gstats") & filters.user(OWNER_ID))
 async def stats(cli: dev, message: Message):
     users = len(await get_served_users())
     chats = len(await get_served_chats())
@@ -39,7 +39,7 @@ async def send_msg(user_id, message):
     except Exception:
         return 500, f"{user_id} : {traceback.format_exc()}\n"
 
-@dev.on_message(filters.command("gcast") & filters.user(OWNER_ID))
+@dev.on_message(filters.command("ggcast") & filters.user(OWNER_ID))
 async def broadcast(_, message):
     if not message.reply_to_message:
         await message.reply_text("ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ ʙʀᴏᴀᴅᴄᴀsᴛ ɪᴛ.")
